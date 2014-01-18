@@ -18,6 +18,12 @@
   <script type="text/javascript" src="spec/PlayerSpec.js"></script>
 
   <script type="text/javascript">
+    define("gonna failed", function () {
+      it("will failed anywhere", function () {
+        expect(true).toEqual(false);
+      });
+    });
+
     (function() {
       var jasmineEnv = jasmine.getEnv();
       jasmineEnv.updateInterval = 1000;
