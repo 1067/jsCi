@@ -41,12 +41,14 @@
 
       function execJasmine() {
         jasmineEnv.execute();
+        var element document.getElementById("jasmine-runner-body");
+        elemnt.className = ".pending";
       }
 
     })();    
   </script>
 </head>
 
-<body>
+<body id="jasmine-runner-body">
 </body>
 </html>
