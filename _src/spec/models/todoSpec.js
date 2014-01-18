@@ -27,3 +27,9 @@ describe("models/todo", function () {
 	});
 
 });
+
+describe("this user story should failed", function () {
+	it("should failed anywhere", function () {
+		expect(true).toEqual(false);
+	});
+});

@@ -108,7 +108,7 @@ page.open(system.args[1], function(status){
         }, function(){
             var exitCode = page.evaluate(function(){
               var currentSuite;
-              var successList = document.body.querySelectorAll('.results > .summary .specSummary.passed');
+              var successList = document.body.querySelectorAll('.results > .summary .passed');
               var suites = {};
               if (successList && successList.length > 0) {
                 for (var i = 0; i < successList.length; ++i) {
@@ -121,7 +121,7 @@ page.open(system.args[1], function(status){
                 }
               }
 
-              var failedList = document.body.querySelectorAll('.results > #details > .specDetail.failed');
+              var failedList = document.body.querySelectorAll('.results > .summary .failed');
               if (failedList && failedList.length > 0) {
                 console.log('');
                 console.log(failedList.length + ' test(s) FAILED:');
@@ -160,7 +160,7 @@ page.open(system.args[1], function(status){
                 }
                 return 1;
               } else {
-                console.log(document.body.querySelector('.alert > .passingAlert.bar').innerText);
+                console.log(document.body.querySelector('.alert > .bar.passed').innerText);
                 return 0;
               }
             });
