@@ -56,7 +56,8 @@ var page = require('webpage').create();
  */
 // Route "console.log()" calls from within the Page context to the main Phantom context (i.e. current "this")
 page.onConsoleMessage = function(msg) {
-  var teamCityMessage = msg.indexOf('TEAMCITY_') === 0;
+  console.log(msg);
+  /*var teamCityMessage = msg.indexOf('TEAMCITY_') === 0;
   if (teamCityMessage) {
     if (!env.hasOwnProperty('TEAMCITY_PROJECT_NAME')) return;
     var separatorIndex = msg.indexOf(':');
@@ -93,7 +94,7 @@ page.onConsoleMessage = function(msg) {
   function escape(message) {
     while (message.indexOf("'") >= 0) message = message.replace("'", '"');
     return message;
-  }
+  }*/
 };
 
 page.open(system.args[1], function(status){
@@ -103,10 +104,10 @@ page.open(system.args[1], function(status){
     } else {
         waitFor(function(){
             return page.evaluate(function(){
-                return document.body.querySelector('.symbolSummary .pending') === null
+                //return document.body.querySelector('.symbolSummary .pending') === null
             });
         }, function(){
-            var exitCode = page.evaluate(function(){
+            /*var exitCode = page.evaluate(function(){
               var currentSuite;
               var successList = document.body.querySelectorAll('.results > .summary .passed');
               var suites = {};
@@ -163,8 +164,9 @@ page.open(system.args[1], function(status){
                 console.log(document.body.querySelector('.alert > .bar.passed').innerText);
                 return 0;
               }
-            });
-            phantom.exit(exitCode);
+            }); */
+            //phantom.exit(exitCode);
+            phantom.exit(0);
         });
     }
 });
